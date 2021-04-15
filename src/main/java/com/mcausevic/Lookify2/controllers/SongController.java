@@ -32,25 +32,27 @@ public class SongController {
 	public String dashboard(Model model) {
 		List<Song> Song = songServ.allSongs();
 	    model.addAttribute("songs", Song);
-		model.addAttribute("song", new Song());
-		//model.addAttribute("allSongs", songServ.getAll());
+		//model.addAttribute("song", new Song());
+		//model.addAttribute("allSongs", songServ.getAll())
 		return "dashboard.jsp";
 	}
 	@RequestMapping("/addSong")
-	public String addSong() {
+	public String addSong(Model model) {
+		model.addAttribute("newSong", new Song());
 		return "add.jsp";
 	}
-	@RequestMapping(value="/add", method=RequestMethod.POST)
+	@RequestMapping(value="/addSong", method=RequestMethod.POST)
 	public String create(@Valid @ModelAttribute("song") Song song, BindingResult result, Model model) {
 		if(result.hasErrors()) {
-			return "redirect:/addSong";
-		}
-		songServ.createSong(song);
+			return "add.jsp";
+		}else
+			songServ.createSong(song);
+			
 		return "redirect:/dashboard";
 	}
-	@RequestMapping(value="/dashboard/{id}", method=RequestMethod.POST)
+	@RequestMapping(value="/songs/delete/{id}", method=RequestMethod.DELETE)
 	public String destroy(@PathVariable("id") Long id) {
-
+		System.out.println("Test");
 		songServ.deleteSong(id);
 		return "redirect:/dashboard";
 	}

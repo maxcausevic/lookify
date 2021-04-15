@@ -11,28 +11,24 @@
 <body>
 <h1> Add a new song</h1>
 <h2><a href="/dashboard">Back to Dashboard</a></h2>
-<form action="/add" method = "post">
-  <label for="title">Title</label><br>
-  <input type="text" id="title" name="title"><br>
-  <label for="artist">Artist</label><br>
-  <input type="text" id="artist" name="artist">
-  <label for="rating">Rating:</label>
-  <select name="rating" id="rating">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-  </select>
-   <label for="embeddedCode">Video Link</label><br>
-  <input type="text" id="embeddedCode" name="embeddedCode" placeholder="optional">
-  <br><br>
-   <input type="submit" value="Add Song">
-</form>
+	<form method="POST" action="/addSong" modelAttribute="song">
+        <label>Title: <input type="text" name="title"></label>
+        <br>
+        <br>
+        <label>Artist: <input type="text" name="artist"></label>
+        <br>
+        <br>
+        <label>Rating (1-10): <input type="number" name="rating" min="1" max="10"></label>
+        <br>
+        <br>
+         <label for="embeddedCode">Video Link</label><br>
+  	<input type="text" id="embeddedCode" name="embeddedCode" placeholder="optional">
+    
+    <input type="submit" value="Submit"/>
+    </form>
+   
+
+
+  
 </body>
 </html>

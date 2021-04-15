@@ -30,7 +30,7 @@
     <td><a href="/song/${song.id}"><c:out value="${song.title}"/></a></td>
     <td><c:out value="${song.artist}"/></td>
     <td><c:out value="${song.rating}"/></td>
-    <td><form action="/songs/delete/${song.id}" method="post">
+   	<td><form action="/songs/delete/${song.id}" method="post">
                 <input type="hidden" value="delete" name="_method">
 				<input type="submit" value="Delete Song">
         </form></td>

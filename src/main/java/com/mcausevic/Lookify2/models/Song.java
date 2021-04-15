@@ -33,7 +33,7 @@ public class Song {
 	    private String artist;
 	    
 	    @NotNull
-	    private String rating;
+	    private Integer rating;
 	    
 	    private String embeddedCode;
 	    
@@ -47,10 +47,11 @@ public class Song {
 	
 	public Song() {
 	}
-	public Song(String title, String artist, String rating) {
+	public Song(String title, String artist, Integer rating, String embeddedCode) {
 		this.title = title;
 		this.artist = artist;
 		this.rating = rating;
+		this.embeddedCode = embeddedCode;
 	}
 	public Long getId() {
 		return id;
@@ -70,10 +71,10 @@ public class Song {
 	public void setArtist(String artist) {
 		this.artist = artist;
 	}
-	public String getRating() {
+	public Integer getRating() {
 		return rating;
 	}
-	public void setRating(String rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 	

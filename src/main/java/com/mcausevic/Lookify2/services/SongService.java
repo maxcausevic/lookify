@@ -35,7 +35,7 @@ private final SongRepo songRepo;
 	            return null;
 	        }
 	        }
-	        public Song updatesong(Long id, String title, String artist, String rating) {
+	        public Song updatesong(Long id, String title, String artist, Integer rating, String embeddedCode) {
 	    		Song song1 = findSong(id);
 	    		song1.setTitle(title);
 	    		song1.setArtist(artist);
